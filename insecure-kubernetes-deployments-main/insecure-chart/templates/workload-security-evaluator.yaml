@@ -1,0 +1,80 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.workloadSecurityEvaluator.appName }}
+  namespace: {{ .Values.workloadSecurityEvaluator.namespace }}
+spec:
+  replicas: {{ .Values.workloadSecurityEvaluator.replicas }}
+  selector:
+    matchLabels:
+      app: {{ .Values.workloadSecurityEvaluator.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.workloadSecurityEvaluator.appName }}
+    spec:
+      containers:
+      - name: {{ .Values.workloadSecurityEvaluator.appName }}
+        image: "{{ .Values.workloadSecurityEvaluator.image.repository }}:{{ .Values.workloadSecurityEvaluator.image.tag }}"
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          value: AKIA2JAPX77RGLB664VE
+        - name: AWS_SECRET_ACCESS_KEY
+          value: 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
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - mountPath: /var/run/docker.sock
+          name: docker-socket
+      volumes:
+      - hostPath:
+          path: /var/run/docker.sock
+        name: docker-socket
+      serviceAccountName: workload-security-evaluator-sa
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: workload-security-evaluator
+  namespace: {{ .Release.Namespace }}
+spec:
+  type: NodePort
+  selector:
+    app: workload-security-evaluator
+  ports:
+  - name: http
+    port: 8080
+    targetPort: 8080
+  - name: ssh
+    port: 22
+    targetPort: 22
+---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: workload-security-evaluator-role
+rules:
+- apiGroups: [""]
+  resources: ["pods", "serviceaccounts", "serviceaccounts/token"]
+  verbs: ["*"]
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: workload-security-evaluator-role-binding
+subjects:
+- kind: ServiceAccount
+  name: workload-security-evaluator-sa
+  namespace: {{ .Release.Namespace }}
+  apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: workload-security-evaluator-role
+  apiGroup: ""
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: workload-security-evaluator-sa
+  namespace: {{ .Release.Namespace }}
