@@ -23,7 +23,7 @@ This will create an EKS cluster with some insecure application pods for testing.
 
 1. Make sure you have [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli), [Helm](https://helm.sh/docs/intro/install/), [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html), [eksctl](https://eksctl.io/installation/) and a valid AWS user configured
 
-2. Move to terraform directory, `cd terraform`
+2. Move to terraform directory, `cd terraform` and rejoice!
 
 3. Apply the terraform, this creates an EKS cluster for testing: `terraform init` `terraform plan` `terraform apply` This creates two EKS node groups, one publicly accessible over SSH and another private. These will run small instances, be sure to `terraform destroy` when you're done for minimal fees. This takes about 15 minutes.
 
