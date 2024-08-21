@@ -1,0 +1,43 @@
+
+Testing ....
+
+Tested 3 dependencies for known issues, found 10 issues, 10 vulnerable paths.
+
+
+Issues to fix by upgrading:
+
+  Upgrade lodash@4.16.1 to lodash@4.17.21 to fix
+  ✗ Regular Expression Denial of Service (ReDoS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JS-LODASH-1018905] in lodash@4.16.1
+    introduced by lodash@4.16.1
+  ✗ Regular Expression Denial of Service (ReDoS) [Medium Severity][https://security.snyk.io/vuln/SNYK-JS-LODASH-73639] in lodash@4.16.1
+    introduced by lodash@4.16.1
+  ✗ Prototype Pollution [Medium Severity][https://security.snyk.io/vuln/npm:lodash:20180130] in lodash@4.16.1
+    introduced by lodash@4.16.1
+  ✗ Code Injection [High Severity][https://security.snyk.io/vuln/SNYK-JS-LODASH-1040724] in lodash@4.16.1
+    introduced by lodash@4.16.1
+  ✗ Prototype Pollution [High Severity][https://security.snyk.io/vuln/SNYK-JS-LODASH-567746] in lodash@4.16.1
+    introduced by lodash@4.16.1
+  ✗ Prototype Pollution [High Severity][https://security.snyk.io/vuln/SNYK-JS-LODASH-608086] in lodash@4.16.1
+    introduced by lodash@4.16.1
+  ✗ Prototype Pollution [High Severity][https://security.snyk.io/vuln/SNYK-JS-LODASH-6139239] in lodash@4.16.1
+    introduced by lodash@4.16.1
+  ✗ Prototype Pollution [High Severity][https://security.snyk.io/vuln/SNYK-JS-LODASH-450202] in lodash@4.16.1
+    introduced by lodash@4.16.1
+  ✗ Prototype Pollution [High Severity][https://security.snyk.io/vuln/SNYK-JS-LODASH-73638] in lodash@4.16.1
+    introduced by lodash@4.16.1
+
+  Upgrade semver@5.4.1 to semver@5.7.2 to fix
+  ✗ Regular Expression Denial of Service (ReDoS) [High Severity][https://security.snyk.io/vuln/SNYK-JS-SEMVER-3247795] in semver@5.4.1
+    introduced by semver@5.4.1
+
+
+
+Organization:      personal-S75uTmrVsW9D2mctWJPs9d
+Package manager:   npm
+Target file:       package-lock.json
+Project name:      package.json
+Open source:       no
+Project path:      .
+Licenses:          enabled
+
+
