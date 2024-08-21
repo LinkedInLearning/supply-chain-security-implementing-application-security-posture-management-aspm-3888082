@@ -1,0 +1,64 @@
+
+Testing . ...
+
+ ✗ [Low] Improper Type Validation 
+   Path: node_modules/@sentry/node/cjs/transports/http.js, line 112 
+   Info: The type of this object, coming from body and the value of its length property can be controlled by the user. An attacker may craft the properties of the object to crash the application or bypass its logic. Consider checking the type of the object.
+
+ ✗ [Low] Improper Type Validation 
+   Path: node_modules/@sentry/node/esm/transports/http.js, line 107 
+   Info: The type of this object, coming from body and the value of its length property can be controlled by the user. An attacker may craft the properties of the object to crash the application or bypass its logic. Consider checking the type of the object.
+
+ ✗ [Low] Use of Password Hash With Insufficient Computational Effort 
+   Path: node_modules/snyk/dist/cli/519.index.js, line 109 
+   Info: sha1 hash (used in createHash) is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [Low] Use of Password Hash With Insufficient Computational Effort 
+   Path: node_modules/snyk/dist/cli/989.index.js, line 371 
+   Info: md5 hash (used in createHash) is insecure. Consider changing it to a secure hashing algorithm.
+
+ ✗ [Medium] Debug Mode Enabled 
+   Path: app.py, line 64 
+   Info: Running the application in debug mode (debug flag is set to True in run) is a security risk if the application is accessible by untrusted parties.
+
+ ✗ [Medium] Cleartext Transmission of Sensitive Information 
+   Path: node_modules/@sentry/node/cjs/integrations/spotlight.js, line 68 
+   Info: _ uses HTTP which is an insecure protocol and should not be used in code due to cleartext transmission of information. Data in cleartext in a communication channel can be sniffed by unauthorized actors. Consider using the https module instead.
+
+ ✗ [High] Path Traversal 
+   Path: app.py, line 36 
+   Info: Unsanitized input from the HTTP request body flows into save, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write arbitrary files.
+
+ ✗ [High] Hardcoded Secret 
+   Path: ransomware.py, line 34 
+   Info: Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in here.
+
+ ✗ [High] Hardcoded Secret 
+   Path: app.py, line 6 
+   Info: Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in here.
+
+ ✗ [High] Hardcoded Secret 
+   Path: app.py, line 7 
+   Info: Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in here.
+
+ ✗ [High] SQL Injection 
+   Path: app.py, line 40 
+   Info: Unsanitized input from a web form flows into execute, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+ ✗ [High] Command Injection 
+   Path: app.py, line 28 
+   Info: Unsanitized input from a web form flows into subprocess.Popen, where it is used as a shell command. This may result in a Command Injection vulnerability.
+
+
+✔ Test completed
+
+Organization:      personal-S75uTmrVsW9D2mctWJPs9d
+Test type:         Static code analysis
+Project path:      .
+
+Summary:
+
+  12 Code issues found
+  6 [High]   2 [Medium]   4 [Low] 
+
+
