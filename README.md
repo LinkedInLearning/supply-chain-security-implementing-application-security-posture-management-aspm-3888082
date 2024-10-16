@@ -1,34 +1,31 @@
 # Supply Chain Security: Implementing Application Security Posture Management (ASPM)
+
 This is the repository for the LinkedIn Learning course `Supply Chain Security: Implementing Application Security Posture Management (ASPM)`. The full course is available from [LinkedIn Learning][lil-course-url].
 
+![lil-thumbnail-url]
+
+## Course Description
+
+This course covers the core concepts and skills required to secure a modern, cloud-native application. Join instructor and security engineer James Berthoty as he provides a comprehensive overview of the emerging field of application security posture management (ASPM) and how it integrates a variety of different security tools used to secure applications from supply chain and other threats. Explore the fundamentals of code security, container security, runtime security, and remediating findings. Along the way, test out your new skills in the exercise challenges at the end of each section. Upon completing this course, you’ll be prepared to successfully argue for the value of different security tools in your development workflows, as well as implement a full program to operationalize those tools.
+
 _See the readme file in the main branch for updated instructions and information._
+
 ## Instructions
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
 
-## Branches
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `main` branch holds the final state of the code when in the course.
+The relevant code for this repository is primarily in the insecure-kubernetes-deployments folder. This folder contains its own README elaborating on what the code and how you can use it.
 
-When switching from one exercise files branch to the next after making changes to the files, you may get a message like this:
+Branches exist for a few challenges with files that are called out in the videos. These are `challenge-1`, `challenge-4`, and `challenge-5`. These files will be used in the challenges.
 
-    error: Your local changes to the following files would be overwritten by checkout:        [files]
-    Please commit your changes or stash them before you switch branches.
-    Aborting
+## Instructor
 
-To resolve this issue:
-	
-    Add changes to git using this command: git add .
-	Commit changes using this command: git commit -m "some message"
+James Berthoty
 
-## Installing
-1. To use these exercise files, you must have the following installed:
-	- [list of requirements for course]
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. [Course-specific instructions]
+Security Engineer Turned Analyst at Latio Tech
+
+                            
+
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/james-berthoty?u=104).
 
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
-
-[lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: http://
-
+[lil-course-url]: https://www.linkedin.com/learning/application-security-posture-management-security-from-the-supply-chain-to-cloud-runtime
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D4E0DAQEiW1YErXXyqQ/learning-public-crop_675_1200/learning-public-crop_675_1200/0/1727374987008?e=2147483647&v=beta&t=0v1jscZ_2_AbJxWOYHVydHsqI8msIxeEkbaX9phHNHg
